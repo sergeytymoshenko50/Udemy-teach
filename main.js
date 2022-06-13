@@ -29,7 +29,7 @@
 // console.log(personalMoviesDB.movies);
 
 
-// DONE!!!!!!!
+// DONE!!!!!!!(цикл з ялинкою)
 // const lines = 5;
 // let result = '';
 // let count = 1;
