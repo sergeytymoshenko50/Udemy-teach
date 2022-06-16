@@ -95,9 +95,38 @@ function writeYourGenres() {
 // }   
 // console.log(getMathResult(3, "df"));
 
+// convert minutes to strig with hours and minutes
 function getTimeFromMinutes(minutes) {
-    const hours = parseInt(minutes / 60);
-    // let result = `Єто ${} ${} и ${} ${}`;
-    return hours;
+    if(minutes < 0 || isNaN(minutes)){
+        return "Ошбка проверьте данние";
+    }
+    
+    function minToHour(minutesArg) {
+        if(minutesArg < 60) {
+            return 0;
+        }else{
+            return parseInt(minutesArg / 60);
+        }
+    }
+
+    function detectNameHours(){
+        if(minToHour(minutes) == 0 || 4 < minToHour(minutes)) {
+            const secondNameHours = "часов";
+            return secondNameHours;
+        }else {            
+            const firstNameHours = "часа";
+            return firstNameHours;
+        }
+    }
+    function findMinRemainder(min){
+        return min - (parseInt(min / 60) * 60);
+    }
+    
+    let finishStr = `Єто ${minToHour(minutes)} ${detectNameHours()} и ${findMinRemainder(minutes)} минут`;  
+    return finishStr;
 }
-console.log(getTimeFromMinutes(60));
+console.log(getTimeFromMinutes(150));
+console.log(getTimeFromMinutes(50));
+console.log(getTimeFromMinutes(0));
+console.log(getTimeFromMinutes(-150));
+console.log(getTimeFromMinutes("-150"));
