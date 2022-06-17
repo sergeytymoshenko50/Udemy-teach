@@ -141,3 +141,37 @@ function writeYourGenres() {
 //     return Math.max(...arguments);
 // }
 // console.log(findMaxNumber(1, 2, 6.6));
+
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function (obj) {
+
+        // `Мне ${} и я владею языками: ${}`
+    }
+};
+
+function showExperience(plan) {
+    const {exp} = plan.skills;
+    return exp;
+}
+
+function showProgrammingLangs(plan) {
+    let result = "";
+    for(let key in plan.skills.programmingLangs){
+        if(Object.keys(plan.skills.programmingLangs).length === 0){
+            return result;
+        }else{
+            result += `Язык ${key} изучен на ${plan.skills.programmingLangs[key]}\n`;
+        }
+    }
+    return result;    
+}
