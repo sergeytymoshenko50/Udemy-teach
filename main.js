@@ -20,7 +20,7 @@ const personalMoviesDB = {
 
 function rememberMyFilms() {
     for(let i = 0; i < 2; i++){
-        let lastFilm = prompt("one of the last watched movies"),
+        let lastFilm = prompt("one of the last watched movies").trim(),
             filmRating = prompt("how much will you appreciate it");
         if(lastFilm.length < 50 && lastFilm !== null && lastFilm !== "" && filmRating !== null && filmRating !== ""){
             personalMoviesDB.movies[lastFilm] = filmRating;
@@ -96,37 +96,48 @@ function writeYourGenres() {
 // console.log(getMathResult(3, "df"));
 
 // convert minutes to strig with hours and minutes
-function getTimeFromMinutes(minutes) {
-    if(minutes < 0 || isNaN(minutes)){
-        return "Ошбка проверьте данние";
-    }
+// function getTimeFromMinutes(minutes) {
+//     if(minutes < 0 || isNaN(minutes)){
+//         return "Ошбка проверьте данние";
+//     }
     
-    function minToHour(minutesArg) {
-        if(minutesArg < 60) {
-            return 0;
-        }else{
-            return parseInt(minutesArg / 60);
-        }
-    }
+//     function minToHour(minutesArg) {
+//         if(minutesArg < 60) {
+//             return 0;
+//         }else{
+//             return parseInt(minutesArg / 60);
+//         }
+//     }
 
-    function detectNameHours(){
-        if(minToHour(minutes) == 0 || 4 < minToHour(minutes)) {
-            const secondNameHours = "часов";
-            return secondNameHours;
-        }else {            
-            const firstNameHours = "часа";
-            return firstNameHours;
-        }
-    }
-    function findMinRemainder(min){
-        return min - (parseInt(min / 60) * 60);
-    }
+//     function detectNameHours(){
+//         if(minToHour(minutes) == 0 || 4 < minToHour(minutes)) {
+//             const secondNameHours = "часов";
+//             return secondNameHours;
+//         }else {            
+//             const firstNameHours = "часа";
+//             return firstNameHours;
+//         }
+//     }
+//     function findMinRemainder(min){
+//         return min - (parseInt(min / 60) * 60);
+//     }
     
-    let finishStr = `Єто ${minToHour(minutes)} ${detectNameHours()} и ${findMinRemainder(minutes)} минут`;  
-    return finishStr;
-}
-console.log(getTimeFromMinutes(150));
-console.log(getTimeFromMinutes(50));
-console.log(getTimeFromMinutes(0));
-console.log(getTimeFromMinutes(-150));
-console.log(getTimeFromMinutes("-150"));
+//     let finishStr = `Єто ${minToHour(minutes)} ${detectNameHours()} и ${findMinRemainder(minutes)} минут`;  
+//     return finishStr;
+// }
+// console.log(getTimeFromMinutes(150));
+// console.log(getTimeFromMinutes(50));
+// console.log(getTimeFromMinutes(0));
+// console.log(getTimeFromMinutes(-150));
+// console.log(getTimeFromMinutes("-150"));
+
+// function findMaxNumber(num1, num2, num3, num4) {
+//     for(let i = 0; i < 4; i++){
+               
+//         if(typeof(arguments[i]) === "string" || arguments.length < 4 ){
+//             return 0;
+//         }
+//     }
+//     return Math.max(...arguments);
+// }
+// console.log(findMaxNumber(1, 2, 6.6));
