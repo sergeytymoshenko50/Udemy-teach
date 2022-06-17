@@ -142,36 +142,78 @@ function writeYourGenres() {
 // }
 // console.log(findMaxNumber(1, 2, 6.6));
 
-const personalPlanPeter = {
-    name: "Peter",
-    age: "29",
-    skills: {
-        languages: ['ru', 'eng'],
-        programmingLangs: {
-            js: '20%',
-            php: '10%'
-        },
-        exp: '1 month'
-    },
-    showAgeAndLangs: function (obj) {
+// const personalPlanPeter = {
+//     name: "Peter",
+//     age: "29",
+//     skills: {
+//         languages: ['ru', 'eng'],
+//         programmingLangs: {
+//             js: '20%',
+//             php: '10%'
+//         },
+//         exp: '1 month'
+//     },
+//     showAgeAndLangs: function (obj) {
+//         const {age} = obj;
+//         const {languages} = obj.skills;
+//         languages.join(" ").toUpperCase();
+//         return `Мне ${age} и я владею языками: ${languages.join(" ").toUpperCase()}`;
+//     }
+// };
 
-        // `Мне ${} и я владею языками: ${}`
+// function showExperience(plan) {
+//     const {exp} = plan.skills;
+//     return exp;
+// }
+
+// function showProgrammingLangs(plan) {
+//     let result = "";
+//     for(let key in plan.skills.programmingLangs){
+//         if(Object.keys(plan.skills.programmingLangs).length === 0){
+//             return result;
+//         }else{
+//             result += `Язык ${key} изучен на ${plan.skills.programmingLangs[key]}\n`;
+//         }
+//     }
+//     return result;    
+// }
+// const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+// function showFamily(arr) {
+//     if(arr.length === 0){
+//         return "Семя пуста";
+//     }else {
+//         return `Семя состоит из: ${arr.join(" ")}`;
+//     }
+// }
+
+// const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+// function standardizeStrings(arr) {
+//     for(let item of arr) {
+//         console.log(item.toLowerCase());
+//     }
+// }
+// const someString = 'This is some strange string';
+const someString = [];
+
+function reverse(str) {
+    if(typeof(str) === "string"){
+        return str.split("").reverse().join("");
     }
-};
-
-function showExperience(plan) {
-    const {exp} = plan.skills;
-    return exp;
+    else{
+        return "Ошибка!";
+    }
 }
 
-function showProgrammingLangs(plan) {
-    let result = "";
-    for(let key in plan.skills.programmingLangs){
-        if(Object.keys(plan.skills.programmingLangs).length === 0){
-            return result;
-        }else{
-            result += `Язык ${key} изучен на ${plan.skills.programmingLangs[key]}\n`;
-        }
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+const allCurrencies = baseCurrencies.concat(additionalCurrencies);
+function availableCurr(arr, missingCurr) {
+    let availableCuttStr ="Доступные валют:";
+    if(arguments.length === 0){
+
     }
-    return result;    
 }
+console.log(availableCurr(allCurrencies, "CNY"));
