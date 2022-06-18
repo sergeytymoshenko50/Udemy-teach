@@ -1,16 +1,16 @@
-let numberOfFilms;
+
 
 const personalMoviesDB = {
-    count: numberOfFilms,
+    count: 0,
     movies: {},
     actors: {},
     genres: [],
     privat: false,
     start: function () {
-        numberOfFilms = +prompt("How manu movies have you watch?");
+        personalMoviesDB.count = +prompt("How manu movies have you watch?");
     
-        while(numberOfFilms == "" || numberOfFilms == null || numberOfFilms == isNaN(numberOfFilms)) {
-            numberOfFilms = +prompt("How manu movies have you watch?");
+        while(personalMoviesDB.count == "" || personalMoviesDB.count == null || personalMoviesDB.count == isNaN(personalMoviesDB.count)) {
+            personalMoviesDB.count = +prompt("How manu movies have you watch?");
         }
     },
     rememberMyFilms: function () {
@@ -51,22 +51,14 @@ const personalMoviesDB = {
             console.log(`Любимий жанр №${++i} - ето ${item}`);
         });
     },
-    toggleVisibleMyDB: function (propPrivat) {
-        if(propPrivat == false){
-            personalMoviesDB.privat = true;
-        }else{
+    toggleVisibleMyDB: function () {
+        if(personalMoviesDB.privat){
             personalMoviesDB.privat = false;
+        }else{
+            personalMoviesDB.privat = true;
         }
     }
-
 };
-// personalMoviesDB.rememberMyFilms();
-// detectPersonalLevel();
-// personalMoviesDB.toggleVisibleMyDB(personalMoviesDB.privat);
-// personalMoviesDB.showMyDB(personalMoviesDB.privat);
-personalMoviesDB.writeYourGenres();
-
-
 
 
 // DONE!!!!!!!(цикл з ялинкою)
@@ -234,3 +226,41 @@ personalMoviesDB.writeYourGenres();
 //     }
 //     return availableCuttStr;
 // }
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+};
+
+function isBudgetEnough(data) {
+    let sumOfSq = 0;
+    data.shops.forEach(item => {
+        const {width, length} = item;
+        sumOfSq += (width *length);
+    });
+    let realBudg = sumOfSq * data.height * data.moneyPer1m3;
+    if(realBudg <= data.budget){
+        return "Бюджета достаточно";
+    }else{
+        return `Бюджета не достаточо не хватает ${realBudg - data.budget}`;
+    }
+}
+console.log(isBudgetEnough(shoppingMallData));
