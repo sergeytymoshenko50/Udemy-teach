@@ -226,41 +226,64 @@ const personalMoviesDB = {
 //     }
 //     return availableCuttStr;
 // }
-const shoppingMallData = {
-    shops: [
-        {
-            width: 10,
-            length: 5
-        },
-        {
-            width: 15,
-            length: 7
-        },
-        {
-            width: 20,
-            length: 5
-        },
-        {
-            width: 8,
-            length: 10
-        }
-    ],
-    height: 5,
-    moneyPer1m3: 30,
-    budget: 50000
-};
+// const shoppingMallData = {
+//     shops: [
+//         {
+//             width: 10,
+//             length: 5
+//         },
+//         {
+//             width: 15,
+//             length: 7
+//         },
+//         {
+//             width: 20,
+//             length: 5
+//         },
+//         {
+//             width: 8,
+//             length: 10
+//         }
+//     ],
+//     height: 5,
+//     moneyPer1m3: 30,
+//     budget: 50000
+// };
 
-function isBudgetEnough(data) {
-    let sumOfSq = 0;
-    data.shops.forEach(item => {
-        const {width, length} = item;
-        sumOfSq += (width *length);
-    });
-    let realBudg = sumOfSq * data.height * data.moneyPer1m3;
-    if(realBudg <= data.budget){
-        return "Бюджета достаточно";
-    }else{
-        return `Бюджета не достаточо не хватает ${realBudg - data.budget}`;
-    }
+// function isBudgetEnough(data) {
+//     let sumOfSq = 0;
+//     data.shops.forEach(item => {
+//         const {width, length} = item;
+//         sumOfSq += (width *length);
+//     });
+//     let realBudg = sumOfSq * data.height * data.moneyPer1m3;
+//     if(realBudg <= data.budget){
+//         return "Бюджета достаточно";
+//     }else{
+//         return `Бюджета не достаточо не хватает ${realBudg - data.budget}`;
+//     }
+// }
+
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi','Sam'];
+
+function sortStudentsByGroups(arr) {
+    let teams = [],
+        team = [];
+    arr.sort().forEach((item, i) =>{
+        team.push(item);        
+        if(team.length === 3) {
+            teams.push(team);
+            team = [];
+        }
+        if(i == arr.length-1 && team.length < 3 && team.length > 0){
+            let theRest ="Оставшиеся студенти: ";
+            teams.push(theRest + team.join(", "));
+        }else if(i == arr.length-1 && team.length === 0){
+            let theRest ="Оставшиеся студенти: -";
+            teams.push(theRest );
+        }
+   });
+   return teams;
 }
-console.log(isBudgetEnough(shoppingMallData));
+console.log(sortStudentsByGroups(students));
+
