@@ -264,26 +264,79 @@ const personalMoviesDB = {
 //     }
 // }
 
-const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi','Sam'];
+// const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi','Sam'];
 
-function sortStudentsByGroups(arr) {
-    let teams = [],
-        team = [];
-    arr.sort().forEach((item, i) =>{
-        team.push(item);        
-        if(team.length === 3) {
-            teams.push(team);
-            team = [];
+// function sortStudentsByGroups(arr) {
+//     let teams = [],
+//         team = [];
+//     arr.sort().forEach((item, i) =>{
+//         team.push(item);        
+//         if(team.length === 3) {
+//             teams.push(team);
+//             team = [];
+//         }
+//         if(i == arr.length-1 && team.length < 3 && team.length > 0){
+//             let theRest ="Оставшиеся студенти: ";
+//             teams.push(theRest + team.join(", "));
+//         }else if(i == arr.length-1 && team.length === 0){
+//             let theRest ="Оставшиеся студенти: -";
+//             teams.push(theRest );
+//         }
+//    });
+//    return teams;
+// }
+// console.log(sortStudentsByGroups(students));
+
+const restorantData = {
+    menu: [
+        {
+            name: 'Salad Caesar',
+            price: '14$'
+        },
+        {
+            name: 'Pizza Diavola',
+            price: '9$'
+        },
+        {
+            name: 'Beefsteak',
+            price: '17$'
+        },
+        {
+            name: 'Napoleon',
+            price: '7$'
         }
-        if(i == arr.length-1 && team.length < 3 && team.length > 0){
-            let theRest ="Оставшиеся студенти: ";
-            teams.push(theRest + team.join(", "));
-        }else if(i == arr.length-1 && team.length === 0){
-            let theRest ="Оставшиеся студенти: -";
-            teams.push(theRest );
-        }
-   });
-   return teams;
+    ],
+    waitors: [
+        {name: 'Alice', age: 22}, {name: 'John', age: 24}
+    ],
+    averageLunchPrice: '20$',
+    openNow: true
+};
+
+// function isOpen(prop) {
+//     let answer = '';
+//     prop ? answer = 'Закрыто' : answer = 'Открыто';
+
+//     return answer;
+// }
+// console.log(isOpen(restorantData.openNow));
+
+// function isAverageLunchPriceTrue(fDish, sDish, average) {
+//     if (parseInt(fDish.price) + parseInt(sDish.price) < parseInt(average)) {
+//         return 'Цена ниже средней';
+//     } else {
+//         return 'Цена выше средней';
+//     }
+// }
+
+// console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[1], restorantData.averageLunchPrice));
+
+function transferWaitors(data) {
+    const copy = Object.assign({}, data);
+
+    copy.waitors[0] = [{name: 'Mike', age: 32}];
+    return copy;
 }
-console.log(sortStudentsByGroups(students));
 
+console.log(transferWaitors(restorantData));
+console.log(restorantData);
